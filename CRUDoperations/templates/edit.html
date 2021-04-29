@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retrieve data</title>
+     <style>
+       table,td{ border:2px solid  blue;
+        cell-padding:10;
+        cell-spacing:10;
+
+        width:auto;
+        border-radius:5px;
+        margin:3px;
+        padding:5px;
+        align:center;}
+button{
+background:red;
+width:100%;
+}
+td{
+color:blue;}</style>
+</head>
+<body>
+<form method="post" action="">
+    {% csrf_token%}
+    <table>
+        <thead>
+        <tr>
+        <td>Customer Id</td>
+        <td>Customer Name</td>
+        <td>Customer Type</td></tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td><input type="number" value='{{d.Cust_id}}'></td>
+            <td><input type="text" value="{{d.Cust_name}}"></td>
+            <td><input type="text" value="{{d.Cust_type}}"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Update</button></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>

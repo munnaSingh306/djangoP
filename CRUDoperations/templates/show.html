@@ -21,7 +21,8 @@ td{
 color:blue;}</style>
 </head>
 <body>
-<form method="post" action="">
+<form method="post" action="\index">
+    {% csrf_token %}
     <table>
         <thead>
         <tr>
@@ -41,7 +42,12 @@ color:blue;}</style>
                 <a href="/delete/{{e.id}}">Delete</a>
             </td>
         </tr>
-        {% endfor %}</tbody>
+        {% endfor %}
+        <tr>
+            <td colspan="3">
+                <button type="submit">Insert More Data</button>
+            </td>
+        </tr></tbody>
     </table>
 </form>
 

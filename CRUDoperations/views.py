@@ -6,20 +6,22 @@ from CRUDoperations.models import customer
 
 
 def insertdata(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
+        data=customerForm()
+    elif request.method == 'POST':
         data = customerForm(request.POST)
         try:
             data.is_valid()
             data.save()
         except:
-            pass
-    else:
-        data = customerForm()
+            data = customerForm()
+        return render(request,'show.html')
     return render(request, 'index.html', {'form': data})
 
 
 def show(request):
     obj = customer.objects.all()
+
     return render(request, 'show.html', {'d': obj})
 
 
